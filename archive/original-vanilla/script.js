@@ -63,7 +63,7 @@ function playAgain() {
   for (var k = 0; k < span.length; k++) {
     span[k].parentNode.className = span[k].parentNode.className.replace(
       "activeBox",
-      ""
+      "",
     );
   }
 }
