@@ -6,6 +6,7 @@ A polished 3D neon Tic-Tac-Toe experience migrated from the original Vanilla imp
 
 - Vite
 - React
+- TypeScript
 - Tailwind CSS v4 via PostCSS
 - Vanilla CSS for focused 3D transforms and motion
 - Lucide React for interface icons
@@ -28,21 +29,22 @@ A polished 3D neon Tic-Tac-Toe experience migrated from the original Vanilla imp
 ```text
 src/
 ├── components/
-│   ├── GameBoard.jsx
-│   ├── GameCell.jsx
-│   ├── GameHeader.jsx
-│   ├── GameStatus.jsx
-│   ├── PlayerMark.jsx
-│   ├── RestartButton.jsx
-│   └── ResultModal.jsx
+│   ├── GameBoard.tsx
+│   ├── GameCell.tsx
+│   ├── GameHeader.tsx
+│   ├── GameStatus.tsx
+│   ├── PlayerMark.tsx
+│   ├── RestartButton.tsx
+│   └── ResultModal.tsx
 ├── hooks/
-│   └── useTicTacToe.js
+│   └── useTicTacToe.ts
 ├── utils/
-│   ├── constants.js
-│   └── gameLogic.js
-├── App.jsx
+│   ├── constants.ts
+│   └── gameLogic.ts
+├── App.tsx
+├── types.ts
 ├── index.css
-└── main.jsx
+└── main.tsx
 ```
 
 ## Run locally
@@ -57,6 +59,7 @@ Create a production build with:
 ```bash
 npm run build
 npm run preview
+npm run typecheck
 ```
 
 ## Original Vanilla implementation

@@ -1,16 +1,27 @@
 import { useCallback, useState } from "react";
 import { EMPTY_BOARD } from "../utils/constants";
 import { getWinningCombination, isBoardFull } from "../utils/gameLogic";
+import type { Board, GameStatus, Player, WinningCombination } from "../types";
 
-export function useTicTacToe() {
-  const [board, setBoard] = useState([...EMPTY_BOARD]);
-  const [currentPlayer, setCurrentPlayer] = useState("X");
-  const [winner, setWinner] = useState(null);
-  const [winningCells, setWinningCells] = useState([]);
-  const [gameStatus, setGameStatus] = useState("playing");
+export interface TicTacToeState {
+  board: Board;
+  currentPlayer: Player;
+  winner: Player | null;
+  winningCells: WinningCombination | null;
+  gameStatus: GameStatus;
+  makeMove: (index: number) => void;
+  restart: () => void;
+}
+
+export function useTicTacToe(): TicTacToeState {
+  const [board, setBoard] = useState<Board>(() => [...EMPTY_BOARD]);
+  const [currentPlayer, setCurrentPlayer] = useState<Player>("X");
+  const [winner, setWinner] = useState<Player | null>(null);
+  const [winningCells, setWinningCells] = useState<WinningCombination | null>(null);
+  const [gameStatus, setGameStatus] = useState<GameStatus>("playing");
 
   const makeMove = useCallback(
-    (index) => {
+    (index: number) => {
       if (board[index] || gameStatus !== "playing") return;
 
       const nextBoard = [...board];
@@ -39,7 +50,7 @@ export function useTicTacToe() {
     setBoard([...EMPTY_BOARD]);
     setCurrentPlayer("X");
     setWinner(null);
-    setWinningCells([]);
+    setWinningCells(null);
     setGameStatus("playing");
   }, []);
 

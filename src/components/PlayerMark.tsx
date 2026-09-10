@@ -1,4 +1,11 @@
-export function PlayerMark({ player, small = false }) {
+import type { Player } from "../types";
+
+interface PlayerMarkProps {
+  player: Player;
+  small?: boolean;
+}
+
+export function PlayerMark({ player, small = false }: PlayerMarkProps) {
   if (player === "X") {
     return (
       <span className={`mark mark-x ${small ? "mark-small" : ""}`} aria-label="Player X">
